@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 
 namespace Level_B
 {
@@ -19,6 +19,7 @@ namespace Level_B
                 }
                 else if(coins[i] - targetNumber < coins[i+1])
                 {
+                    // salesman returning the change here...
                     minCoins(coins, length, coins[i] - targetNumber);
                     return res++;
                 }
@@ -38,8 +39,11 @@ namespace Level_B
                     minCoins2(coins, length, targetNumber - coins[i]);
                     return res2++;
                 }
+                //suppose intput is 368 , then i will give 500 and then ask for the change...| i will not giving 100 3 times and the 50,10,5,1,1,1 
+                // it will take much more transection than the first one
                 else if ((coins[i] - targetNumber ) +10 < (coins[i]/2))
                 {
+                     // salesman returning the change here...
                     minCoins2(coins, length, coins[i] - targetNumber);
                     return res2++;
                 }
